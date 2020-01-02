@@ -1,0 +1,243 @@
+
+
+
+{% load static %}
+<html lang="en"><head><link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
+   
+                
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'semantic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script src="{% static 'jquery.js' %}"></script>
+    <script src="{%  static 'jquery.address.js' %}"></script>
+    <script src="{% static 'semantic.js' %}"></script>
+    <script src="{% static 'script.js' %}" ></script>                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+        
+        
+        
+        
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="author" content="">
+            <link rel="icon" href="/images/fav.png" type="image/gif">
+        <title>Welcome to JNTUA Official Results portal</title>
+        
+        <script type="text/javascript">
+        function per()
+        {
+            var tm = parseInt(document.getElementById("tmarks").value);
+            var fm = parseInt(document.getElementById("fmarks").value);
+            if(fm>=tm){
+                var per = (tm/fm)*100;
+                document.getElementById("per").innerHTML=per+"%";
+            }
+            else
+            {
+                
+                document.getElementById("per").innerHTML="Invalid";
+            }
+        }
+        </script>
+        
+            <title>JNTU Anantapur Results Portal</title>
+        <style>
+        .header span{
+            margin-right:217px;
+        }
+        </style>
+        <script>
+        function cnt()
+        {
+            var str=document.getElementById('ht').value;
+            var c=str.length;
+            
+            if(c==10)
+            {
+                
+                showr();
+            }
+        }
+        function showr()
+        {
+        var htElm  =  document.getElementById('ht');
+            var htn = htElm.value;
+            var htRegCheck = /[^A-Za-z0-9]+/g;
+            if(htRegCheck.test(htn)){
+                alert("Please enter only letters and numbers");
+                return;
+            }
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("rs").innerHTML=xmlhttp.responseText+"<INPUT TYPE='button' onClick='window.print()' class='ci' value='Print Result'>";
+            }
+          }
+        xmlhttp.open("GET","results/res.php?ht="+htn+"&id="+56735996+"&accessToken="+10135351,true);
+        xmlhttp.send();
+        }
+        </script>
+        <style>
+        a.link11.black {
+            color: #000000;
+            text-decoration: none;
+        }
+        </style>
+            <!-- Bootstrap Core CSS -->
+            <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+        
+        <style>
+        .hom{color:#fff!important; background-color:#337ab7; border-color:#337ab7}
+        </style>
+        <script src="moz-extension://0432ff2b-47ba-48fa-a7b5-72db657af58a/assets/prompt.js"></script></head>
+        
+        <body>
+            <!-- Navigation -->
+          <header>
+        <style>
+        img {
+            border: 0;
+            /*width: 1170px;*/
+            width:100%;
+        }
+        @media (min-width: 1200px)
+        .container {
+            width: 1170px;
+        }
+        @media (min-width: 992px)
+        .container {
+            width: 970px;
+        }
+        @media (min-width: 768px)
+        .container {
+            width: 750px;
+        }
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        </style>
+        
+        <link rel="icon" href="/images/fav.png" type="image/gif"> 
+        <div class="container">   
+            <div>
+                <center><a class="" href="index.php"><img src="{% static 'om.jpg'%}" alt="JNTUA" title="JNTUA" class="img-responsive"></a></center>
+            </div>
+        <!-- /.container -->
+        </div></header>
+          
+        
+            <!-- Page Content -->
+            <div class="container">
+         
+        
+                <!-- Content Row -->
+                <div class="row">
+                    
+                    <!-- Content Column -->
+                    <div class="col-md-12">
+                        
+                        <div class="sixteen wide column" style="min-height:300px;">
+                <center>
+                        <table>
+                        <tbody><tr colspan="10">
+                            <th style="backgorund:#3498db; text-align:center "> 
+                                
+                                    <br><h1 class="ui info message bxinfo">Title : B.Tech III Year I Semester (R15) Regular and Supplementary Examinations, November/December 2018</h1>                            <br>
+                                    <center> 
+                                        
+                                        
+                                        <form action="search" name="search" method="POST">
+                                            {% csrf_token %}
+                                        
+                                        
+                                          Enter Hall Ticket Number # :<input type="text" maxlength="10" name="ht" id="ht"  placeholder="hallticket no" /> 
+                                    
+                                          <button type="submit"  class="btn btn-danger" style="text-decoration:none">search</button>
+                                    
+                                          {% csrf_token %}
+                                        
+                                      </form>
+                                    
+                                    
+                                    </center><!-- &nbsp;  -->
+                               
+                            </th>
+                        </tr>
+                    </tbody></table>
+                    <br>
+                    
+                    <div id="rs"><b>Hall Ticket No :</b>{{rollnumber}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Student name: </b>{{studentname}}<br><table class="ui table segment"><tbody><tr><th> Subject Code</th><th> Subject Name</th><th> Internals</th><th> Externals</th><th> Total Marks</th><th> Result Status</th><th> Credits</th><th> Grade</th></tr><tr><td>15A02501</td><td>ELECTRICAL MEASUREMENTS</td><td>26</td><td>{{ELECTRICAL_MEASUREMENTS_marks}}</td><td>{{total_marks_ELECTRICAL_MEASUREMENTS}}</td><td>{{result_ELECTRICAL_MEASUREMENTS}}</td><td>{{credits_ELECTRICAL_MEASUREMENTS}}</td><td>{{grade_ELECTRICAL_MEASUREMENTS}}</td></tr><tr><td>15A02502</td><td>ELECTRICAL POWER TRANSMISSION SYSTEMS</td><td>28</td><td>{{ELECTRICAL_POWER_TRANSMISSION_SYSTEMS_marks}}</td><td>{{total_marks_ELECTRICAL_POWER_TRANSMISSION_SYSTEMS}}</td><td>{{result_ELECTRICAL_POWER_TRANSMISSION_SYSTEMS}}</td><td>{{credits_ELECTRICAL_POWER_TRANSMISSION_SYSTEMS}}</td><td>{{grade_ELECTRICAL_POWER_TRANSMISSION_SYSTEMS}}</td></tr><tr><td>15A02503</td><td>POWER ELECTRONICS</td><td>28</td><td>{{marks_POWER_ELECTRONICS}}</td><td>{{total_marks_POWER_ELECTRONICS}}</td><td>{{result_POWER_ELECTRONICS}}</td><td>{{credits_POWER_ELECTRONICS}}</td><td>{{grade_POWER_ELECTRONICS}}</td></tr><tr><td>15A02504</td><td>ELECTRICAL MACHINES - III</td><td>25</td><td>{{marks_ELECTRICAL_MACHINES}}</td><td>{{total_marks_ELECTRICAL_MACHINES}}</td><td>{{result_ELECTRICAL_MACHINES}}</td><td>{{credits_ELECTRICAL_MACHINES}}</td><td>{{grade_ELECTRICAL_MACHINES}}</td></tr><tr><td>15A02506</td><td>ELECTRICAL MACHINES LAB - II</td><td>28</td><td>67</td><td>95</td><td>P</td><td>2</td><td>S</td></tr><tr><td>15A02507</td><td>ELECTRICAL MEASUREMENTS LAB</td><td>28</td><td>68</td><td>96</td><td>P</td><td>2</td><td>S</td></tr><tr><td>15A04509</td><td>LINEAR &amp; DIGITAL IC APPLICATIONS</td><td>28</td><td>{{marks_LINEAR_DIGITAL_IC_APPLICATIONS}}</td><td>{{total_marks_LINEAR_DIGITAL_IC_APPLICATIONS}}</td><td>{{result_LINEAR_DIGITAL_IC_APPLICATIONS}}</td><td>{{credits_LINEAR_DIGITAL_IC_APPLICATIONS}}</td><td>{{grade_LINEAR_DIGITAL_IC_APPLICATIONS}}</td></tr><tr><td>15A04510</td><td>DIGITAL CIRCUITS &amp; SYSTEMS</td><td>30</td><td>{{marks_DIGITAL_CIRCUITS_SYSTEMS}}</td><td>{{total_marks_DIGITAL_CIRCUITS_SYSTEMS}}</td><td>{{result_marks_DIGITAL_CIRCUITS_SYSTEMS}}</td><td>{{credits_marks_DIGITAL_CIRCUITS_SYSTEMS}}</td><td>{{grade_marks_DIGITAL_CIRCUITS_SYSTEMS}}</td></tr><tr><td>15A99501</td><td>SOCIAL VALUES &amp; ETHICS (Audit Course)</td><td>28</td><td>0</td><td>28</td><td>P</td><td>0</td><td>Y</td></tr><tr><th colspan="10" style="text-align:center;color:rgba(0, 71, 181, 0.8)"><input type="button" onclick="window.print()" class="ci" value="Print Result"></th></tr></tbody></table></div>
+                    <br>
+        <div class="panel panel-success">
+            <div class="panel-body text-success text-center"><h4>
+        Note: Any discrepancy in the result noted above must be brought to the notice of the Controller of Examinations(UG), within two weeks from the above date.</h4>
+        </div></div>			
+        </center>
+        
+            </div>
+            
+             
+            
+            <center>
+                
+                <form action="back" method="post">
+                    {% csrf_token %} 
+                    
+                  <button type="submit"  class="btn btn-danger" style="text-decoration:none">Back to Results Home</button>
+                  {% csrf_token %} 
+                </form>
+            </center>
+                <br>       
+                    </div>
+                </div>
+                <!-- /.row -->
+        
+               
+        
+                <!-- Footer -->
+                <div style="clear: both; text-align: center; padding: 20px; width: 100%; background: #c1f2ff;">
+            <p>All © 2018 Jawaharlal Nehru Technological University, Anantapur. All Rights Reserved.</p>
+            <a href="#">Disclaimer</a> | <a href="#">Copyright</a> | <a href="#">Terms</a> | <a href="#">Web Master</a> | <a href="#">Feedback</a>
+        </div>
+            </div>
+            <!-- /.container -->
+        
+           <!-- jQuery -->
+            <script src="js/jquery.js"></script>
+        
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
+        
+        
+        
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-133494275-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-133494275-1');
+        </script>
+        
+        </body><!-- Global site tag (gtag.js) - Google Analytics --></html>
